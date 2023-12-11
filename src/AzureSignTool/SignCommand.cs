@@ -52,11 +52,11 @@ namespace AzureSignTool
         public (bool Present, string Uri) Rfc3161Timestamp { get; set; }
 
         [Option("-td | --timestamp-digest", "Used with the -tr switch to request a digest algorithm used by the RFC 3161 timestamp server.", CommandOptionType.SingleValue)]
-        [AllowedValues("sha1", "sha256", "sha384", "sha512", IgnoreCase = true)]
+        [McMaster.Extensions.CommandLineUtils.AllowedValues("sha1", "sha256", "sha384", "sha512", IgnoreCase = true)]
         public HashAlgorithmName TimestampDigestAlgorithm { get; set; } = HashAlgorithmName.SHA256;
 
         [Option("-fd | --file-digest", "The digest algorithm to hash the file with.", CommandOptionType.SingleValue)]
-        [AllowedValues("sha1", "sha256", "sha384", "sha512", IgnoreCase = true)]
+        [McMaster.Extensions.CommandLineUtils.AllowedValues("sha1", "sha256", "sha384", "sha512", IgnoreCase = true)]
         public HashAlgorithmName FileDigestAlgorithm { get; set; } = HashAlgorithmName.SHA256;
 
         [Option("-t | --timestamp-authenticode", "Specify the timestamp server's URL. If this option is not present, the signed file will not be timestamped.", CommandOptionType.SingleValue), UriValidator]
